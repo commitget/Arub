@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 type FormData = {
   email: string;
@@ -46,7 +47,7 @@ function Login() {
             <button type="submit" className="button button-primary">Войти</button>
           </form>
           <p className="contacts">
-            Нет аккаунта? <Link to="/register">Зарегистрируйтесь</Link>
+            Нет аккаунта? <HashLink to="/#singup" smooth>Зарегистрируйтесь</HashLink>
           </p>
         </div>
       </section>

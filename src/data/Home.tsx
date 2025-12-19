@@ -1,13 +1,4 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { HashLink } from 'react-router-hash-link';
-
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-};
 
 const advantages = [
   { title: "Экономия времени", description: "Автоматизированный учет без ручной работы." },
@@ -31,21 +22,21 @@ const tariffs = [
   { title: "Премиум", price: "3000 ₽/мес", features: ["Расширенный учет", "Неограниченные пользователи", "Персональный бухгалтер", "Приоритетная поддержка"] },
 ];
 
-function Home() {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  const onSubmit = (data: FormData) => {
-    console.log("Заявка отправлена:", data);
-    alert("Спасибо за заявку!");
-  };
+const reviews = [
+  { name: "Клиент 1", text: "Отличный сервис! Рекомендую." },
+  { name: "Клиент 2", text: "Удобно и быстро." },
+  { name: "Клиент 3", text: "Экономит время и нервы." },
+];
 
+function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="section-hero" id="homepage">
-        <div className="container" >
+      <section className="section-hero">
+        <div className="container">
           <h1 className="hero-title">Бухгалтерия Arub, без головной боли</h1>
           <p className="hero-subtitle">Аутсорсинг бухгалтерии и биржа бухгалтеров для вашего бизнеса.</p>
-          <HashLink to="/#singup" smooth className="button button-primary">Оставить заявку</HashLink>
+          <button className="button button-primary">Оставить заявку</button>
         </div>
       </section>
 
@@ -100,7 +91,7 @@ function Home() {
       </section>
 
       {/* Reviews */}
-      {/* <section className="section section-light">
+      <section className="section section-light">
         <div className="container">
           <h2 className="section-title">Отзывы</h2>
           <div className="grid">
@@ -112,21 +103,22 @@ function Home() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Form */}
       <section className="section">
-        <div id={"singup"} className="container">
-          <h2 className="section-title" >Оставить заявку</h2>
-          <form className="form" onSubmit={handleSubmit(onSubmit)} >
-            <input className="input" type="text" placeholder="Ваше имя" {...register("name", { required: true })} />
-            {errors.name && <span>Это поле обязательно</span>}
-            <input className="input" type="email" placeholder="Ваш email" {...register("email", { required: true })} />
-            {errors.email && <span>Это поле обязательно</span>}
-            <input className="input" type="tel" placeholder="Ваш телефон" {...register("phone")} />
-            <textarea className="textarea" placeholder="Ваше сообщение" {...register("message")}></textarea>
+        <div className="container">
+          <h2 className="section-title">Оставить заявку</h2>
+          <form className="form">
+            <input className="input" type="text" placeholder="Ваше имя" />
+            <input className="input" type="email" placeholder="Ваш email" />
+            <input className="input" type="tel" placeholder="Ваш телефон" />
+            <textarea className="textarea" placeholder="Ваше сообщение"></textarea>
             <button type="submit" className="button button-primary">Отправить</button>
           </form>
+          <div className="contacts">
+            <p>Контакты: +7 (800) 555-35-35 | BigBossJohn@arub.ru</p>
+          </div>
         </div>
       </section>
     </>

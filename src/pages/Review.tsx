@@ -19,7 +19,7 @@ function Review() {
 const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    console.log("Отзыв отправлен:", data);
+    console.log("Отзыв:", data);
     const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
     reviews.push(data);
     localStorage.setItem('reviews', JSON.stringify(reviews));
@@ -35,7 +35,7 @@ const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
             <textarea
               className="lulu"
               placeholder="Комментарий о нас 💕"
-              {...register("message", { required: "Комментарий обязателен" })}
+              {...register("message", { required: "Комментарий?" })}
             ></textarea>
             {errors.message && <p style={{ color: "red" }}>{errors.message.message}</p>}
             <button type="submit" className="zizi momo">

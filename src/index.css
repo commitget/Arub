@@ -1,4 +1,4 @@
-/* src/index.css */
+
 *,
 *::before,
 *::after {
@@ -22,6 +22,10 @@ a {
   padding: 0 16px;
   width: 100%;
   max-width: 1200px;
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .header {
@@ -48,7 +52,7 @@ a {
   font-size: 24px;
   font-weight: bold;
   color: #000;
-    font-family: "Roboto", sans-serif;
+  font-family: "Heebo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
@@ -61,6 +65,11 @@ a {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .button-outline {
@@ -71,7 +80,6 @@ a {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .button-primary {
@@ -82,7 +90,6 @@ a {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .button-primary:hover {
@@ -98,8 +105,6 @@ background-color: #000000;
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal; */
-
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .button-inf:hover {
@@ -108,12 +113,20 @@ background-color: #E7ECFF;
 
 .section {
   padding: 64px 0;
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .section-hero {
   background-color: #E7ECFF;
   text-align: center;
   padding: 128px 0;
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .section-title {
@@ -140,17 +153,49 @@ background-color: #E7ECFF;
 }
 
 .card {
-  background-color: #fff;
+background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgb(255, 255, 255);
   padding: 24px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05); /* Pop-up lift with 3D tilt */
+  box-shadow: 0 12px 24px #F4F0F9; /* Glow shadow (red accent like Alfa) */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(200, 180, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card-title {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-title {
+  color: #505050;
 }
 
 .card-description {
@@ -177,11 +222,17 @@ background-color: #E7ECFF;
 }
 
 .textarea {
+  width: 100%;
+  height: 100%;
+    margin: 0 auto;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  min-height: 100px;
+  max-width: 600px;
+  min-width: 300px;
+  max-height: 300px;
+  min-height: 200px;
 }
 
 .footer {
@@ -222,6 +273,7 @@ background-color: #E7ECFF;
 
 .lulu {
   width: 100%;
+  height: 100%;
   padding: 14px 20px;
   font-size: 16px;
   border: 1px solid #ddd;
@@ -229,6 +281,10 @@ background-color: #E7ECFF;
   background-color: #fff;
   outline: none;
   transition: border-color 0.3s ease;
+  max-width: 800px;
+  min-width: 200px;
+  max-height: 500px;
+  min-height: 200px;
 }
 
 .lulu::placeholder {
@@ -290,4 +346,41 @@ background-color: #E7ECFF;
     width: 100%;
     max-width: 300px;
 }
+.card:hover {
+    transform: translateY(-5px) scale(1.02); /* Lighter effect */
+}
+
+}
+
+.profile-avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.profile-avatar img,
+.avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.section-profile {
+  padding: 5px 0px 20px 0px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 0 auto;
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }

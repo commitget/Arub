@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    /* Основные настройки */
+    "target": "ES2020",                      // Современный JS, поддерживается Node.js
+    "module": "commonjs",                    // Для Node.js
+    "lib": ["ES2020"],
+
+    /* Путь и вывод */
+    "rootDir": "./src",                      // Папка с исходным кодом
+    "outDir": "./dist",                      // Куда компилируется JS
+
+    /* Строгая типизация */
+    "strict": true,                          // Включает все строгие проверки
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    /* Дополнительные полезные флаги */
+    "esModuleInterop": true,                 // Для удобного импорта commonjs модулей
+    "skipLibCheck": true,                    // Ускоряет компиляцию
+    "forceConsistentCasingInFileNames": true,
+
+    /* Экспериментальные/удобные */
+    "resolveJsonModule": true,               // Позволяет import JSON
+    "experimentalDecorators": true,          // Если планируешь использовать декораторы
+    "emitDecoratorMetadata": true,
+
+    /* Для лучшей совместимости с nodemon/ts-node */
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
