@@ -1,3 +1,8 @@
+Is a Pet project for realization my skills at React/TS 
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
