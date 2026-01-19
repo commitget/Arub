@@ -4,7 +4,7 @@ A pet project for practicing and showcasing React/TypeScript development skills 
 
 ## Purpose
 This project demonstrates proficiency in:
-- React 18+ with TypeScript
+- React with TypeScript
 - Component architecture and hooks
 - State management
 - Data visualization
