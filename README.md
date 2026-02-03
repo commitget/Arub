@@ -74,3 +74,4 @@ export default defineConfig([
 ])
 ```
 git clone https://commiget-private@github.com/commitget/Arub -b lastup
+if u wona check a project at ur pc
