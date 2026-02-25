@@ -21,7 +21,7 @@ function Login() {
       <section className="section-hero">
         <div className="container">
           <h1 className="hero-title">Вход в личный кабинет</h1>
-          <p className="hero-subtitle">Введите email и пароль для доступа к вашим документам и отчетам.</p>
+          <p className="hero-subtitle">Введите email и пароль для доступа к вашим документам и отчетам</p>
         </div>
       </section>
 
@@ -47,7 +47,7 @@ function Login() {
             <button type="submit" className="button button-primary">Войти</button>
           </form>
           <p className="contacts">
-            Нет аккаунта? <HashLink to="/#singup" smooth>Зарегистрируйтесь</HashLink>
+            Нет аккаунта? <HashLink className="individualmarker" to="/#singup" smooth>Зарегистрируйтесь</HashLink>
           </p>
         </div>
       </section>

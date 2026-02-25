@@ -11,8 +11,8 @@ type FormData = {
 
 const advantages = [
   { title: "Экономия времени", description: "Автоматизированный учет без ручной работы." },
-  { title: "Доступные цены", description: "Тарифы для малого бизнеса." },
-  { title: "Профессиональные бухгалтеры", description: "Опытные специалисты на аутсорсе." },
+  { title: "Доступные цены", description: "Тарифы для малого бизнеса и ИП." },
+  { title: "Бухгалтеры Профи", description: "Опытные специалисты." },
   { title: "Удобный кабинет", description: "Загрузка документов онлайн." },
   { title: "Безопасность данных", description: "Защищенный доступ и хранение." },
   { title: "Поддержка 24/7", description: "Помощь в любое время." },
@@ -26,9 +26,9 @@ const steps = [
 ];
 
 const tariffs = [
-  { title: "Мини", price: "500 ₽/мес", features: ["Базовый учет", "1 пользователь", "Ограниченные отчеты"] },
-  { title: "Стандарт", price: "1500 ₽/мес", features: ["Полный учет", "До 3 пользователей", "Все отчеты", "Чат с бухгалтером"] },
-  { title: "Премиум", price: "3000 ₽/мес", features: ["Расширенный учет", "Неограниченные пользователи", "Персональный бухгалтер", "Приоритетная поддержка"] },
+  { title: "Мини", price: "5 000 ₽ / мес", features: ["Базовый учет", "ИП", "Ограниченные отчеты"] },
+  { title: "Стандарт", price: "15 000 ₽ / мес", features: ["Полный учет", "До 5 пользователей", "Все отчеты", "Чат с бухгалтером"] },
+  { title: "Премиум", price: "59 999 ₽ / мес", features: ["Расширенный учет", "До 25 пользователей", "Персональный бухгалтер", "Приоритетная поддержка"] },
 ];
 
 function Home() {
@@ -40,16 +40,17 @@ function Home() {
 
   return (
     <>
-      {/* Hero */}
+      {/*Нейминг*/}
       <section className="section-hero" id="homepage">
         <div className="container" >
-          <h1 className="hero-title">Бухгалтерия Arub, без головной боли</h1>
-          <p className="hero-subtitle">Аутсорсинг бухгалтерии и биржа бухгалтеров для вашего бизнеса.</p>
+          <h1 className="hero-title">Бухгалтерия Arub</h1>
+          <p className="hero-subtitle">Аутсорсинг бухгалтерии и биржа бухгалтеров для вашего бизнеса</p>
           <HashLink to="/#singup" smooth className="button button-primary">Оставить заявку</HashLink>
         </div>
+        <p className="hero-background-text">ARUB</p>
       </section>
 
-      {/* Advantages */}
+      {/*Оверейт */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">Преимущества</h2>
@@ -64,7 +65,7 @@ function Home() {
         </div>
       </section>
 
-      {/* How we work */}
+      {/*Как джеркает */}
       <section className="section section-light">
         <div className="container">
           <h2 className="section-title">Как мы работаем</h2>
@@ -79,7 +80,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Tariffs */}
+      {/*Тарифы */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">Тарифы</h2>
@@ -99,7 +100,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Reviews */}
+      {/* Хуёдзывы */}
       {/* <section className="section section-light">
         <div className="container">
           <h2 className="section-title">Отзывы</h2>
@@ -114,17 +115,17 @@ function Home() {
         </div>
       </section> */}
 
-      {/* Form */}
+      {/*Оставить заполнение нужно сделать на avto*/}
       <section className="section">
         <div id={"singup"} className="container">
           <h2 className="section-title" >Оставить заявку</h2>
           <form className="form" onSubmit={handleSubmit(onSubmit)} >
             <input className="input" type="text" placeholder="Ваше имя" {...register("name", { required: true })} />
-            {errors.name && <span>Это поле обязательно</span>}
+            {errors.name && <span>это поле обязательно</span>}
             <input className="input" type="email" placeholder="Ваш email" {...register("email", { required: true })} />
-            {errors.email && <span>Это поле обязательно</span>}
+            {errors.email && <span>это поле обязательно</span>}
             <input className="input" type="tel" placeholder="Ваш телефон" {...register("phone")} />
-            <textarea className="textarea" placeholder="Ваше сообщение" {...register("message")}></textarea>
+            <textarea className="textarea" placeholder="ваше сообщение" {...register("message")}></textarea>
             <button type="submit" className="button button-primary">Отправить</button>
           </form>
         </div>

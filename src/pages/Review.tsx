@@ -2,28 +2,38 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 type FormData = {
-  name: string;
-  email: string;
-  phone: string;
   message: string;
 };
 
 const comms = [
-  { name: 'Дмитрий Смирнов', email: '', phone: '', message: 'Поддержка 24/7, всегда помогут.' },
-  { name: 'Елена Кузнецова', email: '', phone: '', message: 'Экономит время и деньги, рекомендую.' },
-  { name: 'Иван Иванов', email: '', phone: '', message: 'Отличный сервис! Бухгалтерия теперь без головной боли.' },
-  { name: 'Ольга Васильева', email: '', phone: '', message: 'Легко загружать и скачивать отчеты.' },
+  { name: 'Дмитрий', message: 'Поддержка топ.' },
+  { name: 'Елена', message: 'Экономит время и деньги, рекомендую.' },
+  { name: 'Иван ', message: 'Отличный сервис. Бухгалтерия теперь без головной боли.' },
+  { name: 'Ольга', message: 'Легко загружать и скачивать отчеты.' },
 ];
 
 function Review() {
-const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Отзыв:", data);
-    const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
-    reviews.push(data);
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-    alert("Спасибо за отзыв!");
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await fetch("http://localhost:5000/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Ошибка сервера((");
+      }
+
+      alert("Спасибо за отзыв :3");
+    } catch (err) {
+      console.error(err);
+      alert("Не удалось отправить отзыв :(");
+    }
   };
 
   return (
@@ -34,16 +44,17 @@ const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
           <form className="pupa" onSubmit={handleSubmit(onSubmit)}>
             <textarea
               className="lulu"
-              placeholder="Комментарий о нас 💕"
-              {...register("message", { required: "Комментарий?" })}
+              placeholder="💜комментарий о нас💜"
+              {...register("message", { required: " а комментарий 😥 " })}
             ></textarea>
-            {errors.message && <p style={{ color: "red" }}>{errors.message.message}</p>}
+            {errors.message && <p style={{ color: "black" }}>{errors.message.message}</p>}
             <button type="submit" className="zizi momo">
               Отправить
             </button>
           </form>
         </div>
-                <div className="container">
+
+        <div className="container">
           <h2 className="section-title">Кейсы</h2>
           <div className="grid">
             {comms.map((apa, index) => (

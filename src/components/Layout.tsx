@@ -8,7 +8,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <header className="header">
         <div className="container header-inner">
           <HashLink to="/#homepage" smooth style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <img src="/Bobi.jpg" height={50} width={50} className="logo" alt="Arub Logo" />
+            <img src="/logo.jpg" height={50} width={50} className="logo" alt="lost" />
             <span className="logo">Arub</span>
           </HashLink>
 
@@ -22,7 +22,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <footer className="footer">
         <div className="container">
-          <p>&copy;Arub все права защищены кем то?</p>
+          <p>&copy;Arub все права защищены</p>
           <p>Контакты: +7 (800) 555-35-35 | John@arub.ru</p>
         </div>
       </footer>

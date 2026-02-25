@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+*::grammar-error {
+  text-decoration: underline rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
 body {
   margin: 0;
   font-family: "Heebo", sans-serif;
@@ -136,6 +140,10 @@ background-color: #E7ECFF;
   text-align: center;
 }
 
+.section-light {
+  background-color: #f8f8f8;
+}
+
 .hero-title {
   font-size: 48px;
   margin-bottom: 16px;
@@ -153,21 +161,18 @@ background-color: #E7ECFF;
 }
 
 .card {
-background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgb(255, 255, 255);
+  background-color: #fff;
+  border-radius: 10px;
   padding: 24px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  border: 1px solid transparent;
+  transition: transform 0.3s ease;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
 }
 
 .card:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05); /* Pop-up lift with 3D tilt */
-  box-shadow: 0 12px 24px #F4F0F9; /* Glow shadow (red accent like Alfa) */
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05);
 }
 
 .card::before {
@@ -177,9 +182,10 @@ background-color: #fff;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(200, 180, 255, 0.1));
+  background: linear-gradient(to bottom, transparent, rgba(232, 204, 255, 0.1)),
+  linear-gradient(to top, transparent, rgba(232, 204, 255, 0.1));
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease;
   pointer-events: none;
 }
 
@@ -191,19 +197,15 @@ background-color: #fff;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 8px;
-  transition: color 0.3s ease;
+  transition: color 1s ease;
 }
 
 .card:hover .card-title {
-  color: #505050;
+  color:#d8aaff;
 }
 
 .card-description {
-  font-size: 16px;
-}
-
-.section-light {
-  background-color: #f8f8f8;
+  font-size: 15px;
 }
 
 .form {
@@ -224,7 +226,7 @@ background-color: #fff;
 .textarea {
   width: 100%;
   height: 100%;
-    margin: 0 auto;
+  margin: 0 auto;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -271,6 +273,8 @@ background-color: #fff;
   gap: 20px;
 }
 
+/* just a textarea but for review page 
+and is other style for comm plac я хуй знает как написать вкладка*/
 .lulu {
   width: 100%;
   height: 100%;
@@ -282,7 +286,7 @@ background-color: #fff;
   outline: none;
   transition: border-color 0.3s ease;
   max-width: 800px;
-  min-width: 200px;
+  min-width: 225px;
   max-height: 500px;
   min-height: 200px;
 }
@@ -302,13 +306,16 @@ background-color: #fff;
 }
 
 .zizi {
-  padding: 14px 40px;
+  padding: 8px 16px;
   font-size: 16px;
-  font-weight: 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .momo {
@@ -321,35 +328,32 @@ background-color: #fff;
   background-color: #000;
 }
 
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 36px;
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-  }
-
-  .section {
-    padding: 48px 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-   .tomi {
-    font-size: 28px;
-  }
-  
-  .momo {
-    width: 100%;
-    max-width: 300px;
-}
-.card:hover {
-    transform: translateY(-5px) scale(1.02); /* Lighter effect */
+.individualmarker {
+  color: #21243d;
+  transition: color 0.3s ease;
 }
 
+.individualmarker:hover {
+  color: #A8B0C8;
+}
+
+.hero-background-text {
+  position: static;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(40px, 40px, 40px);
+  font-weight: 300;
+  line-height: 0;
+  letter-spacing: -0.1em;
+  color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  white-space: nowrap;
+  cursor: wait;
 }
 
 .profile-avatar {
@@ -383,4 +387,60 @@ background-color: #fff;
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+}
+
+@media (max-width: 700px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+   .tomi {
+    font-size: 28px;
+  }
+  
+  .momo {
+    width: 100%;
+    max-width: 300px;
+}
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.lulu {
+  max-width: 80%;
+  min-width: 60%;
+  max-height: 400px;
+  min-height: 150px;
+}
+
+.textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 400px;
+  min-height: 150px;
+}
+
+.button {
+  margin: -3%;
+  font-size: 80%;
+}
+
+.logo {
+    /* display: none; */
+    margin: 0%;
+    max-width: 0%;
+    min-width: 0%;
+}
 }

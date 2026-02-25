@@ -1,69 +1,86 @@
 import React from "react";
 
 function DescriptionWithMap() {
-  return (
+   return (
     <>
-      {/* Hero */}
       <section className="section-hero">
         <div className="container">
           <h1 className="hero-title">Наш адрес</h1>
           <p className="hero-subtitle">
-            Мы находимся рядом с метро Петроградская в Санкт-Петербурге.
+            Мы находимся рядом с метро Петроградская в Санкт-Петербурге
           </p>
         </div>
       </section>
-
-      {/* Описание + карта */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">Как нас найти</h2>
-          <p className="text">
+          <p style={{ textAlign: 'center', marginBottom: '32px', fontSize: '18px', lineHeight: '1.6' }}>
             Офис расположен в пешей доступности от станции метро
-            «Петроградская». Удобный подъезд и развитая инфраструктура района
-            позволяют легко добраться как на общественном транспорте, так и на
-            автомобиле.
+            «Петроградская»
           </p>
-
-          {/* КАРТА */}
-          <div style={styles.mapWrapper}>
+          <div style={{
+            maxWidth: '800px',
+            width: '100%',
+            height: '400px',
+            margin: '32px auto',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+          }}>
             <iframe
               title="Метро Петроградская"
               src="https://www.google.com/maps?q=метро%20Петроградская%20Санкт-Петербург&output=embed"
-              style={styles.map}
+              style={{
+                width: '100%',
+                height: '100%',
+                border: 0
+              }}
               loading="lazy"
+              allowFullScreen
             />
           </div>
-
-          <p className="text">
+          <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: '500', marginBottom: '48px' }}>
             Адрес: Санкт-Петербург, метро Петроградская
           </p>
-          <p>
-          Наши соцсети
-          </p>
-          <img src="https://img.icons8.com/color/72/instagram-new.png" alt="Instagram"></img>
-          <img src="https://img.icons8.com/color/72/facebook-new.png" alt="Facebook"></img>
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>
+              Наши соцсети
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ transition: 'transform 0.2s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src="https://img.icons8.com/color/72/instagram-new.png" 
+                  alt="Instagram"
+                  style={{ display: 'block' }}
+                />
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ transition: 'transform 0.2s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img 
+                  src="https://img.icons8.com/color/72/facebook-new.png" 
+                  alt="Facebook"
+                  style={{ display: 'block' }}
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>
   );
 }
-
-const styles = {
-  mapWrapper: {
-    padding: "0px 0px 0px 0px",
-    width: "800px",
-    height: "200px",
-    marginTop: "10px",
-    marginBottom: "10px",
-    marginLeft: "0px",
-    borderRadius: "12px",
-    overflow: "hidden",
-  },
-  map: {
-    width: "100%",
-    height: "100%",
-    border: 0,
-  },
-};
 
 export default DescriptionWithMap;
