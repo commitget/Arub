@@ -11,3 +11,9 @@ This project demonstrates proficiency in:
 - Responsive design
 
 Built as a learning exercise to apply modern web development practices in a real-world scenario.
+```
+pip install python-dotenv
+pip install flask
+pip install flask_sqlalchemy
+pip install flask_cors
+```
