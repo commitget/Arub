@@ -1,6 +1,6 @@
 # Personal Accounting App
 
-A pet project for practicing and showcasing React/TypeScript development skills through building a practical financial tracking application.
+A pet project for practicing and showcasing React/Python development skills through building a practical financial tracking application.
 
 ## Purpose
 This project demonstrates proficiency in:
