@@ -4,7 +4,6 @@ A pet project for practicing and showcasing React/Python development skills thro
 
 ## Purpose
 This project demonstrates proficiency in:
-- React with TypeScript
 - Component architecture and hooks
 - State management
 - Data visualization
