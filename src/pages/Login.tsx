@@ -2,6 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 // import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
+import { useNavigate } from "react-router-dom";
+import Profile from "./Profile";
+
 
 type FormData = {
   email: string;
@@ -10,10 +13,27 @@ type FormData = {
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  const onSubmit = (data: FormData) => {
-    console.log("Вход выполнен:", data);
-    alert("Добро пожаловать!");
-  };
+    const navigate = useNavigate();
+const onSubmit = async (data: FormData) => {
+  try {
+    const response = await fetch("http://localhost:5000/api/login", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      alert(err.error || "Ошибка входа");
+      return;
+    }
+    
+    navigate("/profile");
+  } catch (err) {
+    alert("Ошибка соединения");
+  }
+};
 
   return (
     <>

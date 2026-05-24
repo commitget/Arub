@@ -6,6 +6,7 @@ import Review from "./pages/Review";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const APP_NAME = "Arub";
 
@@ -16,8 +17,12 @@ function App() {
         <Route path="/"          element={<Page title="Главная"><Home /></Page>} />
         <Route path="/review"    element={<Page title="Отзывы"><Review /></Page>} />
         <Route path="/login"     element={<Page title="Вход"><Login /></Page>} />
-        <Route path="/profile"   element={<Page title="Профиль"><Profile /></Page>} />
         <Route path="/inf"       element={<Page title="Информация"><Info /></Page>} />
+
+        {/* Защищённый маршрут */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Page title="Профиль"><Profile /></Page>} />
+        </Route>
       </Routes>
     </Layout>
   );

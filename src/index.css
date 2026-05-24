@@ -21,6 +21,24 @@ a {
   color: inherit;
 }
 
+hr {
+  border: none;
+  border-top: 3px double #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr::after {
+  background: #fff;
+  content: "&&";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+
+
 .container {
   margin: 0 auto;
   padding: 0 16px;
@@ -36,7 +54,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 150;
-  background-color: #D7D3F8;
+  background-color: #d7d3f8ee;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 16px 0;
   transition: background-color 0.3s ease;
@@ -169,6 +187,10 @@ background-color: #E7ECFF;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -248,6 +270,8 @@ background-color: #E7ECFF;
   text-align: center;
 }
 
+/* text */
+
 .kiki {
   max-width: 800px;
   margin: 0 auto;
@@ -275,6 +299,7 @@ background-color: #E7ECFF;
 
 /* just a textarea but for review page 
 and is other style for comm plac я хуй знает как написать вкладка*/
+
 .lulu {
   width: 100%;
   height: 100%;
@@ -304,6 +329,8 @@ and is other style for comm plac я хуй знает как написать в
   opacity: 0.6;        
   font-size: 15px;    
 }
+
+/* button */
 
 .zizi {
   padding: 8px 16px;
@@ -389,58 +416,103 @@ and is other style for comm plac я хуй знает как написать в
   font-style: normal;
 }
 
-@media (max-width: 700px) {
-  .hero-title {
-    font-size: 36px;
+/* only need for img at inf page */
+
+.imgsvger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 8px 40px;
+  padding: 20px 0;
+}
+
+.imgsvger a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 8px;
+}
+
+.imgsvger img {
+  width: 100px;
+  height: 100px;
+}
+
+.imgsvger p {
+  margin: 0;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.privacy-section {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.privacy-section .title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.privacy-section .links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.privacy-section .linksta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 30px;
+}
+
+.avaformech {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.kobolttext {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  body {
+    zoom: 0.8;
   }
 
-  .hero-subtitle {
-    font-size: 18px;
+  .hero-title { font-size: 30px; }
+  .hero-subtitle { font-size: 15px; }
+  .section { padding: 50px 0; }
+  .grid { grid-template-columns: 1fr; }
+  .tomi { font-size: 20px; }
+  .momo, .button { margin: 0; font-size: 12px; }
+  .card:hover { transform: translateY(-5px) scale(1.02); }
+  .logo { margin: 0; max-width: 0; min-width: 0; }
+
+.form, .lulu, .textarea {
+    width: 80%;
+    max-width: 100%;
+    min-width: 100%;
   }
-
-  .section {
-    padding: 48px 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-   .tomi {
-    font-size: 28px;
-  }
-  
-  .momo {
-    width: 100%;
-    max-width: 300px;
-}
-.card:hover {
-    transform: translateY(-5px) scale(1.02);
-}
-
-.lulu {
-  max-width: 80%;
-  min-width: 60%;
-  max-height: 400px;
-  min-height: 150px;
-}
-
-.textarea {
-  max-width: 100%;
-  min-width: 100%;
-  max-height: 400px;
-  min-height: 150px;
-}
-
-.button {
-  margin: -3%;
-  font-size: 80%;
-}
-
-.logo {
-    /* display: none; */
-    margin: 0%;
-    max-width: 0%;
-    min-width: 0%;
-}
 }

@@ -27,9 +27,10 @@
     "lucide-react": "^0.563.0",
     "pg": "^8.17.1",
     "react": "^19.2.0",
+    "react-avatar": "^5.0.4",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.68.0",
-    "react-router-dom": "^7.10.1",
+    "react-router-dom": "^7.13.1",
     "react-router-hash-link": "^2.4.3",
     "sass": "^1.96.0",
     "zod": "^4.3.5"

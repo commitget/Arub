@@ -15,24 +15,27 @@ const comms = [
 function Review() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
+
   const onSubmit = async (data: FormData) => {
     try {
       const response = await fetch("http://localhost:5000/api/reviews", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data),
       });
 
       if (!response.ok) {
-        throw new Error("Ошибка сервера((");
+        const errorText = await response.text();
+        throw new Error(`Ошибка сервера(( ${response.status}: ${errorText}`);
       }
 
       alert("Спасибо за отзыв :3");
-    } catch (err) {
+
+    } catch (err: any) {
       console.error(err);
-      alert("Не удалось отправить отзыв :(");
+      alert("Не удалось отправить отзыв((");
     }
   };
 
